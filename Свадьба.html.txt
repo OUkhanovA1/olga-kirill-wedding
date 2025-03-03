@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Приглашение на свадьбу</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .form-field {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    label {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #b22222;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #d63b3b;
+    }
+  </style>
+</head>
+<body>
+  <h1>Дорогие друзья!</h1>
+  <p>Приглашаем вас на нашу свадьбу! Пожалуйста, заполните форму ниже.</p>
+
+  <!-- НАЧАЛО ФОРМЫ -->
+  <form 
+    name="wedding-rsvp" 
+    method="POST" 
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+  >
+    <!-- Обязательное скрытое поле для Netlify -->
+    <input type="hidden" name="form-name" value="wedding-rsvp" />
+    <p style="display:none;">
+      <label>Не заполняйте это поле: <input name="bot-field" /></label>
+    </p>
+    
+    <div class="form-field">
+      <label for="name">Ваше имя:</label><br/>
+      <input type="text" id="name" name="name" required />
+    </div>
+
+    <div class="form-field">
+      <p>Будете ли вы на свадьбе?</p>
+      <label>
+        <input type="radio" name="attendance" value="Да" required /> Да
+      </label>
+      <label>
+        <input type="radio" name="attendance" value="Нет" /> Нет
+      </label>
+      <label>
+        <input type="radio" name="attendance" value="Пока не знаю" /> Пока не знаю
+      </label>
+    </div>
+
+    <div class="form-field">
+      <label for="message">Комментарии или пожелания:</label><br/>
+      <textarea id="message" name="message" rows="4"></textarea>
+    </div>
+
+    <button type="submit">Отправить</button>
+  </form>
+  <!-- КОНЕЦ ФОРМЫ -->
+
+  <p>Спасибо за ответ! Ждем вас с нетерпением!</p>
+</body>
+</html>
